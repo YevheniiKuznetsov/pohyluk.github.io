@@ -144,7 +144,7 @@ section {
 
 .down-button,
 .top-button {
-  z-index: 999;
+  z-index: 500;
   position: fixed;
   left: 64px;
   bottom: 64px;
@@ -615,8 +615,10 @@ header .mobile-button-active::after {
 .description .description-slide__text {
   position: absolute;
   top: calc(100% - 211px);
+  left: -1px;
   overflow-y: hidden;
-  height: 100%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
   padding: 40px;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.02)), to(rgba(102, 104, 130, 0.02))), #EAEDF5;
   background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02)), #EAEDF5;
@@ -687,7 +689,7 @@ header .mobile-button-active::after {
 }
 
 .description .description-slide:hover .description-slide__text {
-  top: 0;
+  top: -1px;
 }
 
 .description .description-slide:hover .description-slide__text ul {
@@ -737,6 +739,8 @@ header .mobile-button-active::after {
   -o-object-fit: contain;
      object-fit: contain;
   margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .documents .slider-button-next {
@@ -807,8 +811,9 @@ header .mobile-button-active::after {
 }
 
 .about .about-text-scroll {
+  position: relative;
   overflow-y: hidden;
-  height: 40vh;
+  height: calc(66.5vh - 241px);
   -webkit-transform: translate(0, 40px);
       -ms-transform: translate(0, 40px);
           transform: translate(0, 40px);
@@ -821,17 +826,52 @@ header .mobile-button-active::after {
   /* Работает в Chrome, Edge и Safari */
 }
 
+.about .about-text-scroll::before {
+  z-index: 100;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(70.4%, rgba(249, 249, 249, 0.94)));
+  background: -o-linear-gradient(top, #fff 0%, rgba(249, 249, 249, 0.94) 70.4%);
+  background: linear-gradient(180deg, #fff 0%, rgba(249, 249, 249, 0.94) 70.4%);
+  opacity: 0;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.about .about-text-scroll::after {
+  z-index: 100;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#fff), color-stop(70.4%, rgba(249, 249, 249, 0.94)));
+  background: -o-linear-gradient(bottom, #fff 0%, rgba(249, 249, 249, 0.94) 70.4%);
+  background: linear-gradient(0deg, #fff 0%, rgba(249, 249, 249, 0.94) 70.4%);
+  opacity: 0;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.about .before-opacity::before {
+  opacity: 1;
+}
+
+.about .after-opacity::after {
+  opacity: 1;
+}
+
 .about .about-text-scroll-content {
   -webkit-transition: 0.6s;
   -o-transition: 0.6s;
   transition: 0.6s;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(51.12%, #161833), color-stop(70.4%, rgba(22, 24, 51, 0)));
-  background: -o-linear-gradient(top, #161833 51.12%, rgba(22, 24, 51, 0) 70.4%);
-  background: linear-gradient(180deg, #161833 51.12%, rgba(22, 24, 51, 0) 70.4%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
 }
 
 .about .about-text {
@@ -1387,9 +1427,10 @@ header .mobile-button-active::after {
   }
 
   .promo img {
-    right: 0;
+    max-width: 150vw;
+    right: -22vw;
     height: auto;
-    width: 100vw;
+    width: 150vw;
   }
 
   .promo h1 {
@@ -1399,6 +1440,10 @@ header .mobile-button-active::after {
   .promo .promo-description {
     margin-top: auto;
     padding-left: 0;
+  }
+
+  .documents {
+    padding: 0;
   }
 
   .documents .content-wrapper {
@@ -1467,10 +1512,11 @@ header .mobile-button-active::after {
 
   .promo h1 {
     font-size: 36px;
+    padding-bottom: 8vh;
   }
 
   .promo img {
-    top: 20px;
+    top: 1vh;
   }
 }
 
@@ -1495,6 +1541,11 @@ header .mobile-button-active::after {
   .description .content-wrapper {
     padding: 0;
     background: none !important;
+  }
+
+  .about .about-text-scroll {
+    overflow-y: hidden;
+    height: calc(95vh - 229px);
   }
 
   .about h2 {
