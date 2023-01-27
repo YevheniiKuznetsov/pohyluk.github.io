@@ -589,9 +589,9 @@ header .mobile-button-active::after {
   right: 200px;
   height: 100%;
   mix-blend-mode: luminosity;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .promo .promo-description {
@@ -760,21 +760,21 @@ header .mobile-button-active::after {
           transition-delay: 0.8s;
 }
 
-.description .description-slide:hover .description-slide__img::after {
+.description .description-slide__text_active .description-slide__img::after {
   -webkit-backdrop-filter: blur(9px);
           backdrop-filter: blur(9px);
 }
 
-.description .description-slide:hover .description-slide__img img {
+.description .description-slide__text_active .description-slide__img img {
   width: 100%;
   height: 100%;
 }
 
-.description .description-slide:hover .description-slide__text {
+.description .description-slide__text_active .description-slide__text {
   top: -1px;
 }
 
-.description .description-slide:hover .description-slide__text ul {
+.description .description-slide__text_active .description-slide__text ul {
   background: -webkit-gradient(linear, left top, left bottom, from(#676E7F), color-stop(27.88%, #676E7F));
   background: -o-linear-gradient(top, #676E7F 0%, #676E7F 27.88%);
   background: linear-gradient(180deg, #676E7F 0%, #676E7F 27.88%);
@@ -1348,7 +1348,7 @@ header .mobile-button-active::after {
 .anmation-section {
   z-index: 1;
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   -webkit-transition: 1s ease;
   -o-transition: 1s ease;
   transition: 1s ease;
@@ -1556,6 +1556,19 @@ header .mobile-button-active::after {
 }
 
 @media screen and (min-width: 993px) {
+  .description .description-slide:hover .description-slide__text {
+    top: -1px;
+  }
+
+  .description .description-slide:hover .description-slide__text ul {
+    background: -webkit-gradient(linear, left top, left bottom, from(#676E7F), color-stop(27.88%, #676E7F));
+    background: -o-linear-gradient(top, #676E7F 0%, #676E7F 27.88%);
+    background: linear-gradient(180deg, #676E7F 0%, #676E7F 27.88%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .documents .content-wrapper {
     background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.5)));
     background: -o-linear-gradient(bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
