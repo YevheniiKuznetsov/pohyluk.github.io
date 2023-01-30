@@ -90,6 +90,10 @@ body {
   background: #EAEDF5;
 }
 
+body::-webkit-scrollbar {
+  width: 0;
+}
+
 ::-webkit-scrollbar-thumb {
   background: red;
   border-radius: 10px;
@@ -804,9 +808,9 @@ header .mobile-button-active::after {
 
 .documents .swiper-slide {
   padding: 35px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.02)), to(rgba(102, 104, 130, 0.02)));
-  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02));
-  background: linear-gradient(0deg, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02));
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.06)), to(rgba(102, 104, 130, 0.06)));
+  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.06), rgba(102, 104, 130, 0.06));
+  background: linear-gradient(0deg, rgba(102, 104, 130, 0.06), rgba(102, 104, 130, 0.06));
   background-blend-mode: normal, soft-light;
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
@@ -901,9 +905,9 @@ header .mobile-button-active::after {
   position: relative;
   height: 66.5vh;
   padding: 70px 80px 40px 80px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.02)), to(rgba(102, 104, 130, 0.02)));
-  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02));
-  background: linear-gradient(0deg, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02));
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.05)), to(rgba(102, 104, 130, 0.05)));
+  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.05), rgba(102, 104, 130, 0.05));
+  background: linear-gradient(0deg, rgba(102, 104, 130, 0.05), rgba(102, 104, 130, 0.05));
   background-blend-mode: normal, soft-light;
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
@@ -934,9 +938,12 @@ header .mobile-button-active::after {
   left: 0;
   width: 100%;
   height: 20%;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(70.4%, rgba(249, 249, 249, 0.94)));
-  background: -o-linear-gradient(top, #fff 0%, rgba(249, 249, 249, 0.94) 70.4%);
-  background: linear-gradient(180deg, #fff 0%, rgba(249, 249, 249, 0.94) 70.4%);
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0)), to(rgba(102, 104, 130, 0.02)));
+  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0), rgba(102, 104, 130, 0.02));
+  background: linear-gradient(0deg, rgba(102, 104, 130, 0), rgba(102, 104, 130, 0.02));
+  background-blend-mode: normal, soft-light;
+  -webkit-backdrop-filter: blur(40px);
+          backdrop-filter: blur(40px);
   opacity: 0;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
@@ -966,6 +973,13 @@ header .mobile-button-active::after {
 
 .about .after-opacity::after {
   opacity: 1;
+}
+
+.about .about-text-scroll-content {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 .about .about-text {
@@ -1033,9 +1047,9 @@ header .mobile-button-active::after {
           align-items: center;
   height: auto;
   padding: 50px 48px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.02)), to(rgba(102, 104, 130, 0.02)));
-  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02));
-  background: linear-gradient(0deg, rgba(102, 104, 130, 0.02), rgba(102, 104, 130, 0.02));
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(102, 104, 130, 0.05)), to(rgba(102, 104, 130, 0.05)));
+  background: -o-linear-gradient(bottom, rgba(102, 104, 130, 0.05), rgba(102, 104, 130, 0.05));
+  background: linear-gradient(0deg, rgba(102, 104, 130, 0.05), rgba(102, 104, 130, 0.05));
   background-blend-mode: normal, soft-light;
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
@@ -1051,7 +1065,7 @@ header .mobile-button-active::after {
 }
 
 .contact .contact-text-wrapper,
-.contact form {
+.contact .wpcf7 {
   width: 50%;
 }
 
@@ -1213,8 +1227,68 @@ header .mobile-button-active::after {
   transition: 0.3s;
 }
 
+.contact button::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+  -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+      -ms-transform: matrix(1, 0, 0, -1, 0, 0);
+          transform: matrix(1, 0, 0, -1, 0, 0);
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.contact .successful-massage {
+  display: none;
+  width: 332px;
+  padding-top: 30px;
+}
+
+.contact .successful-massage h5 {
+  margin-bottom: 16px;
+  font-size: 21px;
+  line-height: 30px;
+  /* identical to box height, or 143% */
+  /* Natural/#35385A */
+  color: #35385A;
+}
+
+.contact .successful-massage p {
+  font-size: 21px;
+  line-height: 30px;
+  color: #959FB1;
+}
+
 .contact .submit-button-active::before {
   opacity: 1;
+}
+
+.contact .error-button::before {
+  opacity: 1;
+  background: -o-linear-gradient(117.6deg, #ff3333 -59.92%, #ff3333 100%);
+  background: linear-gradient(332.4deg, #ff3333 -59.92%, #ff3333 100%);
+}
+
+.contact .successful-button {
+  background-image: url("../img/sucsess-button.svg");
+}
+
+.contact .successful-button::after {
+  opacity: 1;
+  background: -o-linear-gradient(317.37deg, #0FFFB7 -32.07%, #3FC5FF 81.57%);
+  background: linear-gradient(132.63deg, #0FFFB7 -32.07%, #3FC5FF 81.57%);
+}
+
+.contact .wpcf7-response-output,
+.contact .wpcf7-not-valid-tip {
+  display: none !important;
 }
 
 .consultation {
@@ -1686,6 +1760,21 @@ header .mobile-button-active::after {
     width: 100%;
   }
 
+  .contact .successful-massage {
+    width: 332px;
+    padding-top: 30px;
+  }
+
+  .contact .successful-massage h5 {
+    font-size: 17px;
+    line-height: 30px;
+  }
+
+  .contact .successful-massage p {
+    font-size: 17px;
+    line-height: 30px;
+  }
+
   .contact-text-wrapper {
     display: none;
   }
@@ -1698,7 +1787,8 @@ header .mobile-button-active::after {
     padding: 40px 32px;
   }
 
-  .contact-desctop form {
+  .contact-desctop form,
+  .contact-desctop .wpcf7 {
     width: 100%;
     padding-top: 50vw;
     -webkit-transition: 0.5s;
