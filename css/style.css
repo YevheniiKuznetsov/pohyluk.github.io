@@ -1433,6 +1433,8 @@ header .mobile-button-active::after {
   z-index: 1;
   visibility: hidden;
   position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .weiting-section {
@@ -1445,7 +1447,6 @@ header .mobile-button-active::after {
 
 .prev-section {
   visibility: visible;
-  top: 0;
 }
 
 .next-section {
@@ -1455,7 +1456,6 @@ header .mobile-button-active::after {
 .active-section {
   visibility: visible;
   display: block;
-  top: 0;
 }
 
 .section-pagination {
@@ -1573,6 +1573,18 @@ header .mobile-button-active::after {
           animation-iteration-count: 1 !important;
 }
 
+.active-section {
+  -webkit-animation-name: activeIn;
+          animation-name: activeIn;
+  -webkit-animation-duration: 1.3s !important;
+          animation-duration: 1.3s !important;
+  -webkit-transition-duration: 1.3s !important;
+       -o-transition-duration: 1.3s !important;
+          transition-duration: 1.3s !important;
+  -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
+}
+
 .active-section-reverse {
   -webkit-animation-name: fadeInUp;
           animation-name: fadeInUp;
@@ -1585,9 +1597,9 @@ header .mobile-button-active::after {
           animation-iteration-count: 1 !important;
 }
 
-.active-section {
-  -webkit-animation-name: activeIn;
-          animation-name: activeIn;
+.next-reverse {
+  -webkit-animation-name: reverceNext;
+          animation-name: reverceNext;
   -webkit-animation-duration: 1.3s !important;
           animation-duration: 1.3s !important;
   -webkit-transition-duration: 1.3s !important;
@@ -1700,6 +1712,34 @@ header .mobile-button-active::after {
     opacity: 1;
     -webkit-transform: translate(0, 0);
             transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes reverceNext {
+  from {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+
+  to {
+    opacity: 0.8;
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%);
+  }
+}
+
+@keyframes reverceNext {
+  from {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+
+  to {
+    opacity: 0.8;
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%);
   }
 }
 
@@ -1962,6 +2002,18 @@ header .mobile-button-active::after {
             animation-iteration-count: 1 !important;
   }
 
+  .active-section {
+    -webkit-animation-name: activeIn;
+            animation-name: activeIn;
+    -webkit-animation-duration: 0.7s !important;
+            animation-duration: 0.7s !important;
+    -webkit-transition-duration: 0.7s !important;
+         -o-transition-duration: 0.7s !important;
+            transition-duration: 0.7s !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+  }
+
   .active-section-reverse {
     -webkit-animation-name: fadeInUp;
             animation-name: fadeInUp;
@@ -1974,9 +2026,9 @@ header .mobile-button-active::after {
             animation-iteration-count: 1 !important;
   }
 
-  .active-section {
-    -webkit-animation-name: activeIn;
-            animation-name: activeIn;
+  .next-reverse {
+    -webkit-animation-name: reverceNext;
+            animation-name: reverceNext;
     -webkit-animation-duration: 0.7s !important;
             animation-duration: 0.7s !important;
     -webkit-transition-duration: 0.7s !important;
